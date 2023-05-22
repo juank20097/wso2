@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  api-manager:
+    image: wso2/wso2am:4.0.0
+    container_name: wso2am
+    restart: always
+    ports:
+      - 8280:8280
+      - 8243:8243
+      - 9443:9443
+      - 8383:8080
+    volumes:
+      - wso2:/home/wso2carbon/wso2am-4.0.0
+      - /root/docker/wso2/deployment.toml:/home/wso2carbon/wso2am-4.0.0/repository/conf/deployment.toml
+
+volumes:
+  wso2:
